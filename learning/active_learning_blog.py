@@ -13,8 +13,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
 
-physical_devices = tf.config.list_physical_devices("GPU")
-tf.config.experimental.set_memory_growth(physical_devices[0], True)
+# physical_devices = tf.config.list_physical_devices("CPU")
+# tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
 
 def create_keras_model():
@@ -30,8 +30,6 @@ def create_keras_model():
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=["accuracy"])
     return model
 
-
-classifier = KerasClassifier(create_keras_model)
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
